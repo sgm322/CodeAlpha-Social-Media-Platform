@@ -1,0 +1,15 @@
+{
+  "name": "gather-social",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small burgundy-themed social platform built with vanilla JavaScript, Express, and SQLite.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0"
+  }
+}

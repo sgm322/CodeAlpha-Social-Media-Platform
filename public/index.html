@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f3f0" />
+    <meta name="description" content="A slower, warmer corner of the internet." />
+    <title>Gather — a little more human</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Gather home">
+        <span class="brand-mark" aria-hidden="true">g</span>
+        <span>gather<span class="brand-period">.</span></span>
+      </a>
+      <label class="search-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        <input id="search-input" type="search" placeholder="Find your people..." aria-label="Search people and posts" />
+        <kbd>⌘ K</kbd>
+      </label>
+      <div class="top-actions">
+        <button class="icon-button notification-button" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="mini-profile" id="top-profile" aria-label="Open your profile"></button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="left-column">
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link active" id="home-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path></svg>
+            <span>Home</span>
+            <span class="nav-indicator"></span>
+          </button>
+          <button class="nav-link" id="explore-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4M8.5 13.5l2-5 5 5-5 2z"></path></svg>
+            <span>Explore</span>
+          </button>
+          <button class="nav-link" id="saved-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"></path></svg>
+            <span>Saved</span>
+            <span class="soon-label">SOON</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <section class="sidebar-section">
+          <div class="section-label">YOUR SPACE <button id="edit-profile" class="subtle-icon" aria-label="Edit profile">↗</button></div>
+          <button class="sidebar-profile" id="sidebar-profile"></button>
+          <button class="sidebar-link" id="following-link">
+            <span class="sidebar-link-icon">✳</span> Following
+            <span class="sidebar-count" id="following-count">0</span>
+          </button>
+          <button class="sidebar-link" id="followers-link">
+            <span class="sidebar-link-icon">♡</span> Followers
+            <span class="sidebar-count" id="followers-count">0</span>
+          </button>
+        </section>
+
+        <section class="sidebar-note">
+          <span class="note-spark">✳</span>
+          <p>Make room for<br />the good stuff.</p>
+          <span class="note-caption">A little less scrolling.<br />A little more living.</span>
+          <span class="note-flower" aria-hidden="true">✿</span>
+        </section>
+        <div class="sidebar-footer">
+          <a href="#about">About</a><a href="#guidelines">Guidelines</a><a href="#privacy">Privacy</a>
+          <span>© 2025 Gather Social</span>
+        </div>
+      </aside>
+
+      <section class="feed-column" aria-label="Social feed">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR LITTLE CORNER OF THE INTERNET</div>
+            <h1>Good afternoon<span class="wave">,</span> <span id="welcome-name">friend</span> <span class="wave">✳</span></h1>
+            <p class="welcome-subtitle">A good day to catch up with your people.</p>
+          </div>
+          <span class="date-stamp" id="date-stamp"></span>
+        </div>
+
+        <section class="composer card">
+          <div class="composer-top">
+            <div id="composer-avatar" class="avatar avatar-large"></div>
+            <button class="composer-prompt" id="composer-focus">What’s on your mind, <span id="composer-name">friend</span>?</button>
+          </div>
+          <form id="post-form">
+            <textarea id="post-body" maxlength="1000" rows="1" placeholder="Share a thought, a moment, a little win..." aria-label="Write a post"></textarea>
+            <div class="composer-image-field">
+              <input id="image-url" type="url" maxlength="2000" placeholder="Paste an image URL (optional)" aria-label="Image URL" />
+            </div>
+            <div class="composer-bottom">
+              <div class="composer-tools">
+                <button type="button" class="tool-button" id="add-image-button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="8.5" cy="9" r="1.5"></circle><path d="m21 15-5-5L5 20"></path></svg>
+                  <span>Photo</span>
+                </button>
+                <span class="composer-hint">Keep it kind. Keep it you.</span>
+              </div>
+              <button class="primary-button post-button" type="submit" id="publish-button">Share a moment <span>↗</span></button>
+            </div>
+          </form>
+        </section>
+
+        <div class="feed-heading">
+          <div class="feed-tabs">
+            <button class="feed-tab active" data-feed="all">For you <span class="tab-dot"></span></button>
+            <button class="feed-tab" data-feed="following">Following</button>
+          </div>
+          <button class="sort-button" id="sort-button"><span class="sort-glyph">↕</span> Latest</button>
+        </div>
+        <div id="feed-list" class="feed-list" aria-live="polite"></div>
+      </section>
+
+      <aside class="right-column">
+        <section class="profile-card card">
+          <div class="cover-art"><span>✿</span><i>✳</i></div>
+          <div class="profile-card-content">
+            <div class="profile-card-avatar" id="profile-card-avatar"></div>
+            <div class="profile-card-name" id="profile-card-name"></div>
+            <div class="profile-card-handle" id="profile-card-handle"></div>
+            <p id="profile-card-bio"></p>
+            <div class="profile-stats">
+              <div><strong id="profile-post-count">0</strong><span>posts</span></div>
+              <div><strong id="profile-follower-count">0</strong><span>friends</span></div>
+              <div><strong id="profile-following-count">0</strong><span>following</span></div>
+            </div>
+            <button class="outline-button" id="view-profile-button">View your profile <span>↗</span></button>
+          </div>
+        </section>
+
+        <section class="suggestions-section">
+          <div class="right-section-heading"><div><span class="eyebrow">GOOD COMPANY</span><h2>People to know</h2></div><button id="see-all-people">See all <span>↗</span></button></div>
+          <div id="people-list" class="people-list"></div>
+        </section>
+
+        <section class="quote-card">
+          <span class="quote-mark">“</span>
+          <p>Connection is why<br />we’re here; it is what<br />gives purpose and<br />meaning to our lives.</p>
+          <span class="quote-byline">— Brené Brown</span>
+          <span class="quote-decoration">✿</span>
+        </section>
+      </aside>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog class="profile-dialog" id="profile-dialog">
+      <button class="dialog-close" id="dialog-close" aria-label="Close profile">×</button>
+      <div id="profile-dialog-content"></div>
+    </dialog>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
